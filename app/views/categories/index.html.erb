@@ -1,0 +1,10 @@
+<head>
+	<%= stylesheet_link_tag 'categories', media: 'all', 'data-turbolinks-track': 'reload' %>
+</head>
+
+ <div class="categoryList text_center">
+ <h2>CATEGORIES</h2>
+<% @categories.each do |cat| %>
+  <h3> <%= cat.name %> </h3>
+  <%end%>
+</div>
