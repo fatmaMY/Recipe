@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-	before_action :set_category, only: [:show, :edit, :update, :destroy]
+	before_action :find_category, only: [:show, :edit, :update, :destroy]
 
 	def index
 		@categories = Category.all
@@ -13,11 +13,22 @@ class CategoriesController < ApplicationController
 		
 		redirect_to categories_path
 	end
-		
+	end
+	def edit
+
 	end
 
+	def update
+
+	end
+	def destroy
+		@category.destroy
+		redirect_to categories_path
+	end
+		
+
 	private
-	 def set_category
+	 def find_category
      @category = Category.find(params[:id])
     end
 	def category_params
