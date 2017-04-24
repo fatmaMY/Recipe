@@ -6,5 +6,7 @@
  <h2>CATEGORIES</h2>
 <% @categories.each do |cat| %>
   <h3> <%= cat.name %> </h3>
+  <%= link_to 'Edite' , edit_category_path(cat) %>
+  <%= link_to 'Destroy' , cat, method: :delete, data: {confirm:'Are you sure?'} %>
   <%end%>
 </div>
