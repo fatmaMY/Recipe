@@ -19,6 +19,9 @@ class CategoriesController < ApplicationController
 	end
 
 	def update
+		if @category.update
+			redirect_to categories_path
+		end
 
 	end
 	def destroy
