@@ -1,64 +1,54 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Recipe</title>
-    <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Caveat" rel="stylesheet">
-  </head>
-
-  <body>
-
-  <h1>
+<head>
+	<title>Recipe</title>
+	<%= csrf_meta_tags %>
+	<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+	<link href="https://fonts.googleapis.com/css?family=Eagle+Lake|Caveat" rel="stylesheet">
+	<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+	<div id="logo">
+		<h1>
 			Wasfa
 		</h1>
-  <nav class="navbar navbar-default navbar-fixed-top custom-header">
+		<%= image_tag('Soup-icon.png') %>
+	</div>
+	<nav class="navbar navbar-default navbar-fixed-top custom-header">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				
-				
 				<button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-links">
 					<i class="fa fa-bars"></i>
 				</button>
 			</div>
 			<div class="collapse navbar-collapse navbar-right" id="navbar-links">
 				<ul class="nav navbar-nav">
-					<!-- <li><a href="home">Home</a></li>
-					<li><a href="skills.html" id="skills">Skills</a></li>
-					<li><a href="projects.html">Projects</a></li>
-					<li><a href="more.html">More</a></li> -->
-					<li><%= link_to 'Home', root_path %></li>
+					<li><%= link_to 'Home', root_path %></a></li>
 					<li class="dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="categories">Categories
+						<a href="categories">Categories
 							<span class="caret"></span>
 						</a>
 						<ul class="dropdown-menu">
-							<li><a href="#">Main Courses</a></li>
-							<li><a href="#">Side Orders</a></li>
-							<li><a href="#">Salads</a></li>
-							<li><a href="#">Drinks</a></li>
-							<li><a href="#">Appetizers</a></li>
-							<li><a href="#">Soups</a></li>
-							<li><a href="#">Desserts</a></li>
+							<% Category.all.each do |cat| %>
+							<li><%= cat.name %></li>
+							<%end%>
+
 						</ul>
 					</li>
-            <!-- <li><%= link_to 'Ctegories', categories_path %></a></li> -->
-					<li><%= link_to 'Recipes', food_recipes_path %></a></li>
+					<li><%= link_to 'recipes', food_recipes_path %></a></li>
 					<li><%= link_to 'About', about_path %></li>
 					<li><%= link_to 'Kitchen Secrets', secrets_path %></li>
 				</ul>
 			</div>
 		</div>
 	</nav>
-    <%= yield %>
-    <footer>
+	<%= yield %>
+	<footer>
 		<div class="container">
 			<div class="row text-center">
 				<p>&copy;2017 copyrights.| Proudly created by Goory&Fatima</p>
 			</div>
 		</div>
 	</footer>
-  </body>
+</body>
 </html>
